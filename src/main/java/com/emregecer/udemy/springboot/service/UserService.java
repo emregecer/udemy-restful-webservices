@@ -1,18 +1,19 @@
 package com.emregecer.udemy.springboot.service;
 
+import com.emregecer.udemy.springboot.dto.UserDto;
 import com.emregecer.udemy.springboot.entity.User;
 
 import java.util.List;
 
 public interface UserService {
 
-    User createUser(User user);
+    UserDto createUser(UserDto user);
 
-    User getUserById(Long userId);
+    UserDto getUserById(Long userId);
 
-    List<User> getAllUsers();
+    List<UserDto> getAllUsers();
 
-    User updateUser(User user);
+    UserDto updateUser(UserDto user);
 
     void deleteUser(Long userId);
 }

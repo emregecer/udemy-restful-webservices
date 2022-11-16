@@ -1,5 +1,6 @@
 package com.emregecer.udemy.springboot.controller;
 
+import com.emregecer.udemy.springboot.dto.UserDto;
 import com.emregecer.udemy.springboot.entity.User;
 import com.emregecer.udemy.springboot.service.UserService;
 import lombok.AllArgsConstructor;
@@ -18,8 +19,8 @@ public class UserController {
 
     // build create User REST API
     @PostMapping()
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        User savedUser = userService.createUser(user);
+    public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
+        UserDto savedUser = userService.createUser(userDto);
 
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
@@ -27,8 +28,8 @@ public class UserController {
     // build get user by id REST API
     // http://localhost:8080/api/users/1
     @GetMapping("{id}")
-    public ResponseEntity<User> getUserById(@PathVariable("id") Long userId) {
-        User user = userService.getUserById(userId);
+    public ResponseEntity<UserDto> getUserById(@PathVariable("id") Long userId) {
+        UserDto user = userService.getUserById(userId);
 
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
@@ -36,17 +37,17 @@ public class UserController {
     // build get all users REST API
     // http://localhost:8080/api/users
     @GetMapping
-    public ResponseEntity<List<User>> findAll() {
-        List<User> users = userService.getAllUsers();
+    public ResponseEntity<List<UserDto>> findAll() {
+        List<UserDto> users = userService.getAllUsers();
 
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
     // build update user REST API
     @PutMapping("{id}")
-    public ResponseEntity<User> updateUser(@PathVariable("id") Long userId, @RequestBody User user) {
+    public ResponseEntity<UserDto> updateUser(@PathVariable("id") Long userId, @RequestBody UserDto user) {
         user.setId(userId);
-        User updateUser = userService.updateUser(user);
+        UserDto updateUser = userService.updateUser(user);
 
         return new ResponseEntity<>(updateUser, HttpStatus.OK);
     }
