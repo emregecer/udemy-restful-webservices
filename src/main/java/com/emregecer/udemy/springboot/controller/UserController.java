@@ -1,7 +1,6 @@
 package com.emregecer.udemy.springboot.controller;
 
 import com.emregecer.udemy.springboot.dto.UserDto;
-import com.emregecer.udemy.springboot.entity.User;
 import com.emregecer.udemy.springboot.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
